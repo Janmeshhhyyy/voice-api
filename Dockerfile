@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY main.py .
 
 # 5. Tell the container which port to expose
-EXPOSE 8000
+EXPOSE 7860
 
 # 6. The command that runs when the container starts
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]

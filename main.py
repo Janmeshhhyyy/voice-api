@@ -4,6 +4,7 @@ from transformers import pipeline
 import scipy.io.wavfile as wavfile
 import torch
 import io
+import uvicorn
 
 # 1. Initialize the FastAPI app
 app = FastAPI(title="Text-to-Speech Microservice")
@@ -39,3 +40,7 @@ async def generate_audio(request: TTSRequest):
     
     # Send the buffer back to the user as an audio file over the internet!
     return Response(content=buffer.getvalue(), media_type="audio/wav")
+
+# 5. Force the server to listen on port 7860
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=7860)
